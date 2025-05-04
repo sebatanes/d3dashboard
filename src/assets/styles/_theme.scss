@@ -1,0 +1,155 @@
+// Theme variables
+:root {
+  // Light theme (default)
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --accent: #{$accent};
+  --success: #{$success};
+  --warning: #{$warning};
+  --danger: #{$danger};
+  --info: #{$info};
+
+  --body-bg: #{$gray-100};
+  --body-color: #{$gray-900};
+
+  --card-bg: #{$white};
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  --border-color: #{$gray-300};
+  
+  --scrollbar-track: #{$gray-200};
+  --scrollbar-thumb: #{$gray-400};
+  --scrollbar-thumb-hover: #{$gray-500};
+
+  --sidebar-bg: #{$gray-800};
+  --sidebar-color: #{$white};
+  --sidebar-active: #{$primary};
+  --sidebar-hover: rgba(255, 255, 255, 0.1);
+
+  --header-bg: #{$white};
+  --header-color: #{$gray-800};
+  --header-border: #{$gray-300};
+
+  --btn-default-bg: #{$white};
+  --btn-default-color: #{$gray-700};
+  --btn-default-border: #{$gray-300};
+  
+  --input-bg: #{$white};
+  --input-color: #{$gray-900};
+  --input-border: #{$gray-400};
+  --input-focus-border: #{$primary};
+  --input-placeholder: #{$gray-500};
+
+  --chart-grid: #{$gray-300};
+  --chart-tooltip-bg: rgba(0, 0, 0, 0.8);
+  --chart-tooltip-color: #{$white};
+}
+
+// Dark theme
+.theme-dark {
+  --primary: #3b82f6;
+  --secondary: #a78bfa;
+  --accent: #fbbf24;
+  --success: #34d399;
+  --warning: #f59e42;
+  --danger: #ef4444;
+  --info: #60a5fa;
+
+  --body-bg: #0f111a;
+  --body-color: #f3f4f6;
+
+  --card-bg: #1a1d2b;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  
+  --border-color: #23263a;
+  
+  --scrollbar-track: #23263a;
+  --scrollbar-thumb: #374151;
+  --scrollbar-thumb-hover: #4b5563;
+
+  --sidebar-bg: #1a1d2b;
+  --sidebar-color: #f3f4f6;
+  --sidebar-active: #3b82f6;
+  --sidebar-hover: rgba(59, 130, 246, 0.08);
+
+  --header-bg: #23263a;
+  --header-color: #f3f4f6;
+  --header-border: #23263a;
+
+  --btn-default-bg: #23263a;
+  --btn-default-color: #f3f4f6;
+  --btn-default-border: #374151;
+  
+  --input-bg: #23263a;
+  --input-color: #f3f4f6;
+  --input-border: #374151;
+  --input-focus-border: #3b82f6;
+  --input-placeholder: #6b7280;
+
+  --chart-grid: #374151;
+  --chart-tooltip-bg: rgba(30, 41, 59, 0.95);
+  --chart-tooltip-color: #f3f4f6;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  color: var(--input-color);
+  border-color: var(--input-border);
+  &::placeholder {
+    color: var(--input-placeholder);
+  }
+  &:focus {
+    border-color: var(--input-focus-border);
+    background-color: var(--input-bg);
+    color: var(--input-color);
+  }
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.dropdown-menu {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dropdown-item {
+  color: var(--body-color);
+  &:hover {
+    background-color: var(--sidebar-hover);
+  }
+}
+
+.nav-link {
+  color: var(--body-color);
+  &.active {
+    color: var(--primary);
+  }
+}
+
+.theme-dark {
+  .table {
+    color: var(--body-color);
+  }
+  
+  .border {
+    border-color: var(--border-color) !important;
+  }
+  
+  .text-muted {
+    color: $gray-500 !important;
+  }
+}
