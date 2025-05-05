@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useThemeStore } from '../../stores/theme'
 
-const router = useRouter()
 const route = useRoute()
 const themeStore = useThemeStore()
 const currentTheme = computed(() => themeStore.currentTheme)
@@ -58,8 +57,8 @@ const isActive = (path: string): boolean => {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/variables';
-@import '../../assets/styles/mixins';
+@use '../../assets/styles/variables' as vars;
+@use '../../assets/styles/mixins' as mix;
 
 .sidebar {
   width: 250px;
@@ -74,7 +73,7 @@ const isActive = (path: string): boolean => {
   transition: width 0.3s ease, background-color 0.3s ease;
   z-index: 1000;
   
-  @include respond-below(md) {
+  @include mix.respond-below(md) {
     width: 0;
     overflow: hidden;
     
@@ -84,7 +83,7 @@ const isActive = (path: string): boolean => {
   }
   
   .sidebar-header {
-    padding: $space-2 $space-3;
+    padding: vars.$space-2 vars.$space-3;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     height: 85px;
     display: flex;
@@ -111,7 +110,7 @@ const isActive = (path: string): boolean => {
       ul {
         list-style: none;
         padding: 0;
-        margin: $space-2 0;
+        margin: vars.$space-2 0;
         
         li {
           margin-bottom: 0.25rem;
@@ -119,15 +118,15 @@ const isActive = (path: string): boolean => {
           a {
             display: flex;
             align-items: center;
-            padding: $space-1 $space-2;
+            padding: vars.$space-1 vars.$space-2;
             color: var(--sidebar-color);
             text-decoration: none;
             transition: background-color 0.2s ease;
             border-radius: 4px;
-            margin: 0 $space-1;
+            margin: 0 vars.$space-1;
             
             i {
-              margin-right: $space-1;
+              margin-right: vars.$space-1;
               font-size: 1.1rem;
               width: 24px;
               text-align: center;
@@ -149,7 +148,7 @@ const isActive = (path: string): boolean => {
   }
   
   .sidebar-footer {
-    padding: $space-2;
+    padding: vars.$space-2;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     
     .theme-toggle {
@@ -158,14 +157,14 @@ const isActive = (path: string): boolean => {
       align-items: center;
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: $border-radius;
-      padding: $space-1;
+      border-radius: vars.$border-radius;
+      padding: vars.$space-1;
       color: var(--sidebar-color);
       cursor: pointer;
       transition: background-color 0.2s ease;
       
       i {
-        margin-right: $space-1;
+        margin-right: vars.$space-1;
       }
       
       &:hover {

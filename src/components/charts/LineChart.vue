@@ -28,7 +28,7 @@ const renderChart = async () => {
 
   d3.select(chartRef.value).selectAll('*').remove()
 
-  const margin = { top: 30, right: 30, bottom: 50, left: 60 }
+  const margin = { top: 30, right: 30, bottom: 50, left: 90 }
   const width = chartRef.value.clientWidth - margin.left - margin.right
   const height = props.height - margin.top - margin.bottom
 

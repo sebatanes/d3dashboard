@@ -1,52 +1,7 @@
-// Theme variables
+@use 'variables' as vars;
+
+// dark x defecto
 :root {
-  // Light theme (default)
-  --primary: #{$primary};
-  --secondary: #{$secondary};
-  --accent: #{$accent};
-  --success: #{$success};
-  --warning: #{$warning};
-  --danger: #{$danger};
-  --info: #{$info};
-
-  --body-bg: #{$gray-100};
-  --body-color: #{$gray-900};
-
-  --card-bg: #{$white};
-  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  
-  --border-color: #{$gray-300};
-  
-  --scrollbar-track: #{$gray-200};
-  --scrollbar-thumb: #{$gray-400};
-  --scrollbar-thumb-hover: #{$gray-500};
-
-  --sidebar-bg: #{$gray-800};
-  --sidebar-color: #{$white};
-  --sidebar-active: #{$primary};
-  --sidebar-hover: rgba(255, 255, 255, 0.1);
-
-  --header-bg: #{$white};
-  --header-color: #{$gray-800};
-  --header-border: #{$gray-300};
-
-  --btn-default-bg: #{$white};
-  --btn-default-color: #{$gray-700};
-  --btn-default-border: #{$gray-300};
-  
-  --input-bg: #{$white};
-  --input-color: #{$gray-900};
-  --input-border: #{$gray-400};
-  --input-focus-border: #{$primary};
-  --input-placeholder: #{$gray-500};
-
-  --chart-grid: #{$gray-300};
-  --chart-tooltip-bg: rgba(0, 0, 0, 0.8);
-  --chart-tooltip-color: #{$white};
-}
-
-// Dark theme
-.theme-dark {
   --primary: #3b82f6;
   --secondary: #a78bfa;
   --accent: #fbbf24;
@@ -89,6 +44,95 @@
   --chart-grid: #374151;
   --chart-tooltip-bg: rgba(30, 41, 59, 0.95);
   --chart-tooltip-color: #f3f4f6;
+  
+  --chart-primary: #4F8CFF;
+  --chart-secondary: #2CD9C5;
+  --chart-accent: #FFD166;
+  --chart-success: #A3FF99;
+  --chart-warning: #FFD166;
+  --chart-danger: #FF5C8A;
+  --chart-info: #4DD0E1;
+  --chart-series-1: #4F8CFF;
+  --chart-series-2: #2CD9C5;
+  --chart-series-3: #FFD166;
+  --chart-series-4: #FF785A;
+  --chart-series-5: #A259F7;
+  --chart-series-6: #FF5C8A;
+  --chart-series-7: #A3FF99;
+  --chart-series-8: #4DD0E1;
+  --chart-series-9: #F06292;
+  --chart-series-10: #BDBDBD;
+  
+  --chart-axis-color: #6b7280;
+  --chart-text-color: #f3f4f6;
+  --chart-background: #1a1d2b;
+}
+
+.theme-light {
+  --primary: #{vars.$primary};
+  --secondary: #{vars.$secondary};
+  --accent: #{vars.$accent};
+  --success: #{vars.$success};
+  --warning: #{vars.$warning};
+  --danger: #{vars.$danger};
+  --info: #{vars.$info};
+
+  --body-bg: #{vars.$gray-100};
+  --body-color: #{vars.$gray-900};
+
+  --card-bg: #{vars.$white};
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  --border-color: #{vars.$gray-300};
+  
+  --scrollbar-track: #{vars.$gray-200};
+  --scrollbar-thumb: #{vars.$gray-400};
+  --scrollbar-thumb-hover: #{vars.$gray-500};
+
+  --sidebar-bg: #f8f9fa;
+  --sidebar-color: #{vars.$gray-800};
+  --sidebar-active: #{vars.$primary};
+  --sidebar-hover: rgba(0, 0, 0, 0.05);
+
+  --header-bg: #{vars.$white};
+  --header-color: #{vars.$gray-800};
+  --header-border: #{vars.$gray-200};
+
+  --btn-default-bg: #{vars.$white};
+  --btn-default-color: #{vars.$gray-700};
+  --btn-default-border: #{vars.$gray-300};
+  
+  --input-bg: #{vars.$white};
+  --input-color: #{vars.$gray-900};
+  --input-border: #{vars.$gray-400};
+  --input-focus-border: #{vars.$primary};
+  --input-placeholder: #{vars.$gray-500};
+
+  --chart-grid: #{vars.$gray-300};
+  --chart-tooltip-bg: rgba(0, 0, 0, 0.8);
+  --chart-tooltip-color: #{vars.$white};
+  
+  --chart-primary: #2563EB;
+  --chart-secondary: #10B981;
+  --chart-accent: #FBBF24;
+  --chart-success: #84CC16;
+  --chart-warning: #FBBF24;
+  --chart-danger: #EF4444;
+  --chart-info: #06B6D4;
+  --chart-series-1: #2563EB;
+  --chart-series-2: #10B981;
+  --chart-series-3: #FBBF24;
+  --chart-series-4: #FB7185;
+  --chart-series-5: #7C3AED;
+  --chart-series-6: #EF4444;
+  --chart-series-7: #84CC16;
+  --chart-series-8: #06B6D4;
+  --chart-series-9: #EC4899;
+  --chart-series-10: #6B7280;
+  
+  --chart-axis-color: #{vars.$gray-600};
+  --chart-text-color: #{vars.$gray-900};
+  --chart-background: #{vars.$white};
 }
 
 .btn-primary {
@@ -150,6 +194,6 @@
   }
   
   .text-muted {
-    color: $gray-500 !important;
+    color: vars.$gray-500 !important;
   }
 }

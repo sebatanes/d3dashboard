@@ -139,8 +139,8 @@ const applyPreset = (preset: string) => {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/_variables';
-@import '../../assets/styles/_mixins';
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
 
 .date-range-picker {
   .date-inputs {

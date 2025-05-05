@@ -144,7 +144,7 @@ onMounted(() => {
               </button>
               <button 
                 class="btn btn-outline-secondary" 
-                @click="analyticsStore.exportToCsv"
+                @click="analyticsStore.exportSalesToCSV"
               >
                 <i class="bi bi-download me-1"></i>
                 Export CSV
@@ -249,7 +249,6 @@ onMounted(() => {
             title="Sales by Department" 
             x-axis-label="Department" 
             y-axis-label="Units Sold"
-            color="var(--accent)"
             :animate="true"
             :height="300"
           />

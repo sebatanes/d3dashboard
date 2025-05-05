@@ -97,11 +97,11 @@ const emitUpdate = () => {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/variables';
+@use '../../assets/styles/variables' as vars;
 
 .filter-container {
   background-color: var(--card-bg);
-  border-radius: $border-radius;
+  border-radius: vars.$border-radius;
   box-shadow: var(--card-shadow);
   margin-bottom: 1rem;
   

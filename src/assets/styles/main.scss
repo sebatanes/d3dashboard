@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'mixins';
-@import 'theme';
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'theme';
 
 html, body {
   margin: 0;
@@ -49,14 +49,14 @@ html, body {
 
 .chart-container {
   position: relative;
-  background-color: var(--card-bg);
-  border-radius: 8px;
+  background-color: var(--chart-background);
+  border-radius: $border-radius-lg;
   box-shadow: var(--card-shadow);
   overflow: hidden;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 
   .chart-header {
-    padding: 16px;
+    padding: $space-3;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
@@ -65,11 +65,14 @@ html, body {
     h5 {
       margin: 0;
       font-weight: 600;
+      color: var(--chart-text-color);
     }
   }
 
   .chart-body {
-    padding: 16px;
+    padding: $space-3;
+    position: relative;
+    background-color: var(--chart-background);
   }
 
   .chart-loading {
@@ -77,6 +80,7 @@ html, body {
     justify-content: center;
     align-items: center;
     min-height: 200px;
+    color: var(--chart-text-color);
   }
 
   .chart-error {
@@ -84,7 +88,66 @@ html, body {
     justify-content: center;
     align-items: center;
     min-height: 200px;
-    color: var(--danger);
+    color: var(--chart-danger);
+  }
+
+  // Chart specific styles
+  .chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-top: $space-3;
+    padding: $space-2;
+    background-color: var(--chart-background);
+    border-radius: $border-radius;
+    border: 1px solid var(--border-color);
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: $space-1;
+      font-size: $font-size-sm;
+      color: var(--chart-text-color);
+
+      .legend-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .chart-tooltip {
+    background-color: var(--chart-tooltip-bg) !important;
+    border-radius: $border-radius !important;
+    padding: $space-2 !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    color: var(--chart-tooltip-color) !important;
+    font-size: $font-size-sm !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  // Chart.js specific overrides
+  canvas {
+    background-color: var(--chart-background) !important;
+  }
+
+  // Grid lines
+  .chartjs-grid {
+    color: var(--chart-grid) !important;
+    border-color: var(--chart-grid) !important;
+  }
+
+  // Axis labels
+  .chartjs-axis-label {
+    color: var(--chart-axis-color) !important;
+  }
+
+  // Data points
+  .chartjs-data-point {
+    background-color: var(--chart-primary) !important;
+    border-color: var(--chart-background) !important;
   }
 }
 

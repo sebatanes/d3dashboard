@@ -8,7 +8,6 @@ const categories = [
   'Beauty'
 ]
 
-// Regiones de venta - ajustadas según nuestro mercado
 const departments = [
   'North America', 
   'Europe', 
@@ -16,8 +15,6 @@ const departments = [
   'Latin America'
 ]
 
-// Genera datos de prueba para el dashboard
-// TODO: Considerar agregar más categorías en el futuro
 export const generateMockData = (count = 500): AnalyticsData[] => {
   const salesData: AnalyticsData[] = []
   
@@ -35,7 +32,6 @@ export const generateMockData = (count = 500): AnalyticsData[] => {
     
     const itemsSold = Math.floor(Math.random() * 100) + 1
     
-    // Precios base por categoría - ajustados según nuestro histórico
     let pricePerUnit = 0
     switch (productCategory) {
       case 'Electronics':

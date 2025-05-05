@@ -1,4 +1,3 @@
-// Data structure as defined in requirements
 export interface AnalyticsData {
   timestamp: string;
   revenue: number;
@@ -7,7 +6,6 @@ export interface AnalyticsData {
   quantity: number;
 }
 
-// Filter options
 export interface DateRange {
   start: string | null;
   end: string | null;
@@ -19,10 +17,8 @@ export interface FilterOptions {
   departments: string[];
 }
 
-// Chart types
 export type ChartType = 'line' | 'bar' | 'pie';
 
-// Chart data interfaces
 export interface LineChartData {
   x: string;
   y: number;
@@ -38,7 +34,6 @@ export interface BarChartData {
   value: number;
 }
 
-// Chart options
 export interface ChartOptions {
   title?: string;
   xAxisLabel?: string;
@@ -48,5 +43,4 @@ export interface ChartOptions {
   height?: number;
 }
 
-// Theme type
 export type ThemeType = 'light' | 'dark';

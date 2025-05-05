@@ -1,28 +1,30 @@
+@use 'variables' as vars;
+
 @mixin respond-above($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: $breakpoint-sm) { @content; }
+    @media (min-width: vars.$breakpoint-sm) { @content; }
   } @else if $breakpoint == md {
-    @media (min-width: $breakpoint-md) { @content; }
+    @media (min-width: vars.$breakpoint-md) { @content; }
   } @else if $breakpoint == lg {
-    @media (min-width: $breakpoint-lg) { @content; }
+    @media (min-width: vars.$breakpoint-lg) { @content; }
   } @else if $breakpoint == xl {
-    @media (min-width: $breakpoint-xl) { @content; }
+    @media (min-width: vars.$breakpoint-xl) { @content; }
   } @else if $breakpoint == xxl {
-    @media (min-width: $breakpoint-xxl) { @content; }
+    @media (min-width: vars.$breakpoint-xxl) { @content; }
   }
 }
 
 @mixin respond-below($breakpoint) {
   @if $breakpoint == xs {
-    @media (max-width: ($breakpoint-sm - 1)) { @content; }
+    @media (max-width: (vars.$breakpoint-sm - 1)) { @content; }
   } @else if $breakpoint == sm {
-    @media (max-width: ($breakpoint-md - 1)) { @content; }
+    @media (max-width: (vars.$breakpoint-md - 1)) { @content; }
   } @else if $breakpoint == md {
-    @media (max-width: ($breakpoint-lg - 1)) { @content; }
+    @media (max-width: (vars.$breakpoint-lg - 1)) { @content; }
   } @else if $breakpoint == lg {
-    @media (max-width: ($breakpoint-xl - 1)) { @content; }
+    @media (max-width: (vars.$breakpoint-xl - 1)) { @content; }
   } @else if $breakpoint == xl {
-    @media (max-width: ($breakpoint-xxl - 1)) { @content; }
+    @media (max-width: (vars.$breakpoint-xxl - 1)) { @content; }
   }
 }
 
@@ -52,14 +54,14 @@
 @mixin transition($properties...) {
   $transitions: ();
   @each $property in $properties {
-    $transitions: append($transitions, $property $transition-duration $transition-timing, comma);
+    $transitions: append($transitions, $property vars.$transition-duration vars.$transition-timing, comma);
   }
   transition: $transitions;
 }
 
 @mixin card {
   background-color: var(--card-bg);
-  border-radius: $border-radius;
+  border-radius: vars.$border-radius;
   box-shadow: var(--card-shadow);
   overflow: hidden;
   @include transition(box-shadow, background-color);
@@ -67,5 +69,5 @@
 
 @mixin focus-ring {
   outline: none;
-  box-shadow: 0 0 0 3px rgba($primary, 0.25);
+  box-shadow: 0 0 0 3px rgba(vars.$primary, 0.25);
 }

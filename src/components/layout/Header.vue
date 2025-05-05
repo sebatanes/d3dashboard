@@ -11,7 +11,9 @@ const toggleDropdown = () => {
   dropdownOpen.value = !dropdownOpen.value
 }
 
-
+const handleSignOut = () => {
+  alert('Auth not implemented')
+}
 </script>
 
 <template>
@@ -28,16 +30,16 @@ const toggleDropdown = () => {
           </div>
           
           <div class="dropdown-menu" :class="{ show: dropdownOpen }">
-            <div class="dropdown-item">
-              <i class="bi bi-person"></i>
-              <span>Profile</span>
-            </div>
-            <div class="dropdown-item">
+            <router-link to="/reports" class="dropdown-item">
+              <i class="bi bi-file-earmark-text"></i>
+              <span>Reports</span>
+            </router-link>
+            <router-link to="/settings" class="dropdown-item">
               <i class="bi bi-gear"></i>
               <span>Settings</span>
-            </div>
+            </router-link>
             <div class="dropdown-divider"></div>
-            <div class="dropdown-item">
+            <div class="dropdown-item" @click="handleSignOut">
               <i class="bi bi-box-arrow-right"></i>
               <span>Sign Out</span>
             </div>
@@ -49,12 +51,12 @@ const toggleDropdown = () => {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/variables';
+@use '../../assets/styles/variables' as vars;
 
 .app-header {
   background-color: var(--sidebar-bg);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: $space-2 $space-3;
+  padding: vars.$space-2 vars.$space-3;
   color: var(--header-color);
   transition: background-color 0.3s ease, border-color 0.3s ease;
   
@@ -82,8 +84,8 @@ const toggleDropdown = () => {
         display: flex;
         align-items: center;
         cursor: pointer;
-        padding: $space-1;
-        border-radius: $border-radius;
+        padding: vars.$space-1;
+        border-radius: vars.$border-radius;
         transition: background-color 0.2s ease;
         
         &:hover {
@@ -91,7 +93,7 @@ const toggleDropdown = () => {
         }
         
         .user-info {
-          margin-right: $space-1;
+          margin-right: vars.$space-1;
           
           .user-name {
             font-weight: 500;
@@ -117,25 +119,25 @@ const toggleDropdown = () => {
           right: 0;
           background-color: var(--card-bg);
           border: 1px solid var(--border-color);
-          border-radius: $border-radius;
+          border-radius: vars.$border-radius;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
           min-width: 180px;
           display: none;
-          z-index: $z-index-dropdown;
+          z-index: vars.$z-index-dropdown;
           
           &.show {
             display: block;
           }
           
           .dropdown-item {
-            padding: $space-1 $space-2;
+            padding: vars.$space-1 vars.$space-2;
             display: flex;
             align-items: center;
             color: var(--body-color);
             transition: background-color 0.2s ease;
             
             i {
-              margin-right: $space-1;
+              margin-right: vars.$space-1;
               width: 16px;
             }
             
@@ -147,7 +149,7 @@ const toggleDropdown = () => {
           .dropdown-divider {
             height: 1px;
             background-color: var(--border-color);
-            margin: $space-1 0;
+            margin: vars.$space-1 0;
           }
         }
       }

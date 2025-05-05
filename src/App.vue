@@ -8,7 +8,6 @@ import Footer from './components/layout/Footer.vue'
 const themeStore = useThemeStore()
 const currentTheme = computed(() => themeStore.currentTheme)
 
-// Update body class when theme changes
 watch(
   () => currentTheme.value,
   (newTheme) => {

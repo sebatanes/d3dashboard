@@ -14,7 +14,7 @@ const getInitialTheme = (): Theme => {
     return 'dark'
   }
   
-  return 'light'
+  return 'dark'
 }
 
 export const useThemeStore = defineStore('theme', () => {

@@ -136,6 +136,10 @@ export const useAnalyticsStore = defineStore('analytics', () => {
     document.body.removeChild(link)
   }
   
+  async function refreshData() {
+    await reloadDashboardData();
+  }
+  
   return {
     rawData,
     filteredData,
@@ -150,6 +154,7 @@ export const useAnalyticsStore = defineStore('analytics', () => {
     updateDashboardFilters,
     changeDateRange,
     reloadDashboardData,
-    exportSalesToCSV
+    exportSalesToCSV,
+    refreshData,
   }
 })

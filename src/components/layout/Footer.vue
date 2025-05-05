@@ -17,12 +17,12 @@ const year = new Date().getFullYear()
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/variables';
+@use '../../assets/styles/variables' as vars;
 
 .app-footer {
   background-color: var(--card-bg);
   border-top: 1px solid var(--border-color);
-  padding: $space-2 $space-3;
+  padding: vars.$space-2 vars.$space-3;
   transition: background-color 0.3s ease, border-color 0.3s ease;
   
   .footer-content {

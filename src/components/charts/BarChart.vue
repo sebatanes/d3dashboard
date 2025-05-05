@@ -92,6 +92,19 @@ const renderChart = async () => {
       .attr('stroke-dasharray', '3,3'))
     .call(g => g.select('.domain').remove())
   
+  const colorPalette = [
+    'var(--chart-series-1)',
+    'var(--chart-series-2)',
+    'var(--chart-series-3)',
+    'var(--chart-series-4)',
+    'var(--chart-series-5)',
+    'var(--chart-series-6)',
+    'var(--chart-series-7)',
+    'var(--chart-series-8)',
+    'var(--chart-series-9)',
+    'var(--chart-series-10)'
+  ];
+
   const bars = svg.selectAll('rect')
     .data(props.data)
     .enter()
@@ -100,7 +113,7 @@ const renderChart = async () => {
     .attr('y', height)
     .attr('width', x.bandwidth())
     .attr('height', 0)
-    .attr('fill', props.color || 'var(--secondary)')
+    .attr('fill', (_, i) => colorPalette[i % colorPalette.length])
     .attr('rx', 2)
     .attr('ry', 2)
   
@@ -123,30 +136,41 @@ const renderChart = async () => {
     .style('position', 'absolute')
     .style('background-color', 'var(--chart-tooltip-bg)')
     .style('color', 'var(--chart-tooltip-color)')
-    .style('padding', '8px')
-    .style('border-radius', '4px')
+    .style('padding', '10px 14px')
+    .style('border-radius', '6px')
     .style('pointer-events', 'none')
-    .style('font-size', '12px')
+    .style('font-size', '13px')
+    .style('font-weight', '500')
+    .style('box-shadow', '0 4px 12px rgba(0, 0, 0, 0.15)')
     .style('z-index', '10')
+    .style('transition', 'opacity 0.2s ease-in-out')
+    .style('backdrop-filter', 'blur(4px)')
   
   bars
     .on('mouseover', function(event, d) {
       d3.select(this)
         .transition()
-        .duration(200)
-        .attr('fill', d3.rgb(props.color || 'var(--secondary)').darker(0.2).toString())
+        .duration(500)
+        .attr('opacity', 0.5)
+        .attr('transform', 'translate(0, -4)')
       
       tooltip
         .style('opacity', 1)
-        .html(`${d.label}: $${d.value.toLocaleString()}`)
+        .html(`
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-weight: 600;">${d.label}</span>
+            <span style="color: var(--primary);">$${d.value.toLocaleString()}</span>
+          </div>
+        `)
         .style('left', `${event.pageX + 10}px`)
         .style('top', `${event.pageY - 28}px`)
     })
     .on('mouseout', function() {
       d3.select(this)
         .transition()
-        .duration(200)
-        .attr('fill', props.color || 'var(--secondary)')
+        .duration(500)
+        .attr('opacity', 1)
+        .attr('transform', 'translate(0, 0)')
       
       tooltip
         .style('opacity', 0)

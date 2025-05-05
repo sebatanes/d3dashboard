@@ -11,8 +11,16 @@ const props = withDefaults(defineProps<{
   height?: number;
 }>(), {
   colors: () => [
-    '#0D6EFD', '#20C997', '#FD7E14', '#198754', '#FFC107', 
-    '#DC3545', '#0DCAF0', '#6610F2', '#6F42C1', '#D63384'
+    'var(--chart-series-1)',
+    'var(--chart-series-2)',
+    'var(--chart-series-3)',
+    'var(--chart-series-4)',
+    'var(--chart-series-5)',
+    'var(--chart-series-6)',
+    'var(--chart-series-7)',
+    'var(--chart-series-8)',
+    'var(--chart-series-9)',
+    'var(--chart-series-10)'
   ],
   animate: true,
   height: 300
@@ -29,10 +37,13 @@ const renderChart = async () => {
   const width = chartRef.value.clientWidth
   const radius = Math.min(width, props.height) / 2 * 0.8
   
+  const legendAreaHeight = 50
+  const svgHeight = props.height + legendAreaHeight
+  
   const svg = d3.select(chartRef.value)
     .append('svg')
     .attr('width', width)
-    .attr('height', props.height)
+    .attr('height', svgHeight)
     .append('g')
     .attr('transform', `translate(${width / 2}, ${props.height / 2})`)
   
@@ -93,6 +104,7 @@ const renderChart = async () => {
       })
   }
   
+
   const labels = svg.selectAll('text')
     .data(data_ready)
     .enter()
@@ -136,31 +148,6 @@ const renderChart = async () => {
     .style('stroke', 'var(--body-color)')
     .style('stroke-width', '1px')
     .style('opacity', props.animate ? 0 : 0.5)
-  
-  const legendSize = 15
-  const legendSpacing = 25
-  const legendX = -width / 2 + 20
-  const legendY = props.height / 2 - 30
-  
-  const legend = svg.selectAll('.legend')
-    .data(props.data)
-    .enter()
-    .append('g')
-    .attr('class', 'legend')
-    .attr('transform', (_, i) => `translate(${legendX}, ${legendY - i * legendSpacing})`)
-  
-  legend.append('rect')
-    .attr('width', legendSize)
-    .attr('height', legendSize)
-    .style('fill', d => color(d.label) as string)
-    .style('opacity', 0.8)
-  
-  legend.append('text')
-    .attr('x', legendSize + 8)
-    .attr('y', legendSize - 3)
-    .text(d => d.label)
-    .style('font-size', '12px')
-    .style('fill', 'var(--body-color)')
   
   if (props.animate) {
     labels
